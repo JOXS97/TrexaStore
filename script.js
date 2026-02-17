@@ -6,7 +6,7 @@
 let cart = [];
 
 // WhatsApp number
-const whatsappNumber = "01207974196";
+const whatsappNumber = "+201207974196";
 
 // Add item to cart
 function addToCart(name, price) {
