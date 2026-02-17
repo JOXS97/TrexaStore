@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrexaSmp - Minecraft Store</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <div class="logo-block"></div>
+                <h1>TrexaSmp</h1>
+            </div>
+            <nav class="nav">
+                <a href="#home">Home</a>
+                <a href="#crates">Crates</a>
+                <a href="#ranks">Ranks</a>
+                <a href="#discord">Discord</a>
+            </nav>
+            <div class="cart-icon" onclick="toggleCart()">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count" id="cartCount">0</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h2>Welcome to <span class="highlight">TrexaSmp</span></h2>
+            <p>Your Ultimate Minecraft Server Store</p>
+            <a href="#crates" class="btn btn-primary">Shop Now</a>
+        </div>
+        <div class="hero-blocks">
+            <div class="minecraft-block grass"></div>
+            <div class="minecraft-block dirt"></div>
+            <div class="minecraft-block stone"></div>
+            <div class="minecraft-block diamond"></div>
+            <div class="minecraft-block emerald"></div>
+        </div>
+    </section>
+
+    <!-- Crates Section -->
+    <section class="products" id="crates">
+        <div class="container">
+            <h2 class="section-title">Crates</h2>
+            <div class="products-grid">
+                <div class="product-card" data-name="Fire Crate" data-price="75">
+                    <div class="product-icon fire-crate">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h3>Fire Crate</h3>
+                    <p class="price">75 EGP</p>
+                    <button class="btn btn-buy" onclick="addToCart('Fire Crate', 75)">
+                        <i class="fas fa-shopping-cart"></i> Buy Now
+                    </button>
+                </div>
+                <div class="product-card" data-name="Insane Crate" data-price="150">
+                    <div class="product-icon insane-crate">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Insane Crate</h3>
+                    <p class="price">150 EGP</p>
+                    <button class="btn btn-buy" onclick="addToCart('Insane Crate', 150)">
+                        <i class="fas fa-shopping-cart"></i> Buy Now
+                    </button>
+                </div>
+                <div class="product-card" data-name="Legendary Crate" data-price="300">
+                    <div class="product-icon legendary-crate">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3>Legendary Crate</h3>
+                    <p class="price">300 EGP</p>
+                    <button class="btn btn-buy" onclick="addToCart('Legendary Crate', 300)">
+                        <i class="fas fa-shopping-cart"></i> Buy Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ranks Section -->
+    <section class="products" id="ranks">
+        <div class="container">
+            <h2 class="section-title">Ranks</h2>
+            <div class="products-grid">
+                <div class="product-card rank-card" data-name="VIP" data-price="30">
+                    <div class="rank-badge vip">VIP</div>
+                    <h3>VIP Rank</h3>
+                    <p class="price">30 EGP</p>
+                    <button class="btn btn-buy" onclick="addToCart('VIP', 30)">
+                        <i class="fas fa-shopping-cart"></i> Buy Now
+                    </button>
+                </div>
+                <div class="product-card rank-card" data-name="VIP+" data-price="50">
+                    <div class="rank-badge vip-plus">VIP+</div>
+                    <h3>VIP+ Rank</h3>
+                    <p class="price">50 EGP</p>
+                    <button class="btn btn-buy" onclick="addToCart('VIP+', 50)">
+                        <i class="fas fa-shopping-cart"></i> Buy Now
+                    </button>
+                </div>
+                <div class="product-card rank-card" data-name="MVP" data-price="70">
+                    <div class="rank-badge mvp">MVP</div>
+                    <h3>MVP Rank</h3>
+                    <p class="price">70 EGP</p>
+                    <button class="btn btn-buy" onclick="addToCart('MVP', 70)">
+                        <i class="fas fa-shopping-cart"></i> Buy Now
+                    </button>
+                </div>
+                <div class="product-card rank-card" data-name="MVP+" data-price="100">
+                    <div class="rank-badge mvp-plus">MVP+</div>
+                    <h3>MVP+ Rank</h3>
+                    <p class="price">100 EGP</p>
+                    <button class="btn btn-buy" onclick="addToCart('MVP+', 100)">
+                        <i class="fas fa-shopping-cart"></i> Buy Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Discord Section -->
+    <section class="discord-section" id="discord">
+        <div class="container">
+            <h2 class="section-title">Join Our Discord</h2>
+            <p class="discord-description">Connect with our community, get updates, and chat with other players!</p>
+            <a href="https://discord.gg/XPaAygSTE3" target="_blank" class="btn btn-discord">
+                <i class="fab fa-discord"></i> Join Discord
+            </a>
+            <div class="usernames">
+                <h3>Server Usernames:</h3>
+                <div class="username-list">
+                    <span class="username">.ysef_</span>
+                    <span class="username">gamercta8</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 TrexaSmp. All rights reserved.</p>
+            <p>Made with <i class="fas fa-heart"></i> for Minecraft Community</p>
+        </div>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h2><i class="fas fa-shopping-cart"></i> Shopping Cart</h2>
+                <span class="close-cart" onclick="toggleCart()">&times;</span>
+            </div>
+            <div class="cart-items" id="cartItems">
+                <p class="empty-cart">Your cart is empty</p>
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span id="cartTotal">0 EGP</span>
+                </div>
+                <button class="btn btn-checkout" onclick="checkout()">
+                    <i class="fab fa-whatsapp"></i> Checkout via WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Blocks Animation -->
+    <div class="floating-blocks">
+        <div class="float-block block-1"></div>
+        <div class="float-block block-2"></div>
+        <div class="float-block block-3"></div>
+        <div class="float-block block-4"></div>
+        <div class="float-block block-5"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
