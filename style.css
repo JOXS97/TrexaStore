@@ -1,0 +1,934 @@
+/* ========================================
+   TrexaSmp - Minecraft Theme Styles
+   ======================================== */
+
+:root {
+    /* Minecraft Color Palette */
+    --grass-green: #5B8731;
+    --dirt-brown: #8B5A2B;
+    --stone-gray: #7D7D7D;
+    --diamond-blue: #4AEDD9;
+    --emerald-green: #11AC0C;
+    --gold: #FFD700;
+    --red: #FF4444;
+    --dark-bg: #1a1a1a;
+    --darker-bg: #0f0f0f;
+    --card-bg: #2a2a2a;
+    --text-light: #f0f0f0;
+    --text-muted: #aaa;
+    --accent: #5B8731;
+    --accent-hover: #4a6f28;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--text-light);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* ========================================
+   Header Styles
+   ======================================== */
+
+.header {
+    background: linear-gradient(180deg, var(--darker-bg) 0%, rgba(15,15,15,0.95) 100%);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 3px solid var(--grass-green);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-block {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--grass-green) 0%, var(--emerald-green) 100%);
+    border: 3px solid #3d5c1f;
+    box-shadow: inset 0 -3px 0 rgba(0,0,0,0.3);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.logo h1 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.5rem;
+    color: var(--grass-green);
+    text-shadow: 2px 2px 0 #000;
+}
+
+.nav {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 5px 10px;
+}
+
+.nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--grass-green);
+    transition: width 0.3s ease;
+}
+
+.nav a:hover {
+    color: var(--grass-green);
+}
+
+.nav a:hover::after {
+    width: 100%;
+}
+
+.cart-icon {
+    position: relative;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--text-light);
+    transition: transform 0.3s ease;
+}
+
+.cart-icon:hover {
+    transform: scale(1.1);
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: var(--red);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: bold;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ========================================
+   Hero Section
+   ======================================== */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 80px;
+    position: relative;
+    background: linear-gradient(180deg, var(--darker-bg) 0%, var(--dark-bg) 100%);
+    overflow: hidden;
+}
+
+.hero-content {
+    text-align: center;
+    z-index: 10;
+    animation: fadeInUp 1s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero h2 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+.highlight {
+    color: var(--grass-green);
+    text-shadow: 3px 3px 0 #000;
+}
+
+.hero p {
+    font-size: 1.3rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+/* ========================================
+   3D Minecraft Blocks
+   ======================================== */
+
+.hero-blocks {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.minecraft-block {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    transform-style: preserve-3d;
+    animation: float 6s ease-in-out infinite;
+}
+
+.minecraft-block::before,
+.minecraft-block::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.minecraft-block.grass {
+    top: 20%;
+    left: 10%;
+    background: linear-gradient(180deg, var(--grass-green) 0%, var(--grass-green) 30%, var(--dirt-brown) 30%);
+    box-shadow: 0 0 20px rgba(91, 135, 49, 0.5);
+    animation-delay: 0s;
+}
+
+.minecraft-block.grass::before {
+    background: linear-gradient(180deg, #6ba33d 0%, #6ba33d 30%, #9e6b3a 30%);
+    transform: rotateX(90deg) translateZ(30px);
+}
+
+.minecraft-block.grass::after {
+    background: linear-gradient(180deg, #5B8731 0%, #5B8731 30%, #8B5A2B 30%);
+    transform: rotateY(90deg) translateZ(30px);
+}
+
+.minecraft-block.dirt {
+    top: 30%;
+    right: 15%;
+    background: var(--dirt-brown);
+    box-shadow: 0 0 20px rgba(139, 90, 43, 0.5);
+    animation-delay: 1s;
+}
+
+.minecraft-block.dirt::before {
+    background: #9e6b3a;
+    transform: rotateX(90deg) translateZ(30px);
+}
+
+.minecraft-block.dirt::after {
+    background: #7a4f26;
+    transform: rotateY(90deg) translateZ(30px);
+}
+
+.minecraft-block.stone {
+    bottom: 25%;
+    left: 20%;
+    background: var(--stone-gray);
+    box-shadow: 0 0 20px rgba(125, 125, 125, 0.5);
+    animation-delay: 2s;
+}
+
+.minecraft-block.stone::before {
+    background: #8d8d8d;
+    transform: rotateX(90deg) translateZ(30px);
+}
+
+.minecraft-block.stone::after {
+    background: #6d6d6d;
+    transform: rotateY(90deg) translateZ(30px);
+}
+
+.minecraft-block.diamond {
+    bottom: 35%;
+    right: 25%;
+    background: var(--diamond-blue);
+    box-shadow: 0 0 30px rgba(74, 237, 217, 0.6);
+    animation-delay: 1.5s;
+}
+
+.minecraft-block.diamond::before {
+    background: #5fffea;
+    transform: rotateX(90deg) translateZ(30px);
+}
+
+.minecraft-block.diamond::after {
+    background: #3dd9cc;
+    transform: rotateY(90deg) translateZ(30px);
+}
+
+.minecraft-block.emerald {
+    top: 50%;
+    left: 8%;
+    background: var(--emerald-green);
+    box-shadow: 0 0 25px rgba(17, 172, 12, 0.6);
+    animation-delay: 0.5s;
+}
+
+.minecraft-block.emerald::before {
+    background: #13c20e;
+    transform: rotateX(90deg) translateZ(30px);
+}
+
+.minecraft-block.emerald::after {
+    background: #0e9a0a;
+    transform: rotateY(90deg) translateZ(30px);
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotateX(0) rotateY(0);
+    }
+    25% {
+        transform: translateY(-20px) rotateX(10deg) rotateY(10deg);
+    }
+    50% {
+        transform: translateY(0) rotateX(0) rotateY(0);
+    }
+    75% {
+        transform: translateY(20px) rotateX(-10deg) rotateY(-10deg);
+    }
+}
+
+/* ========================================
+   Buttons
+   ======================================== */
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-primary {
+    background: linear-gradient(180deg, var(--grass-green) 0%, var(--emerald-green) 100%);
+    color: white;
+    box-shadow: 0 4px 0 #3d5c1f, 0 6px 20px rgba(91, 135, 49, 0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 #3d5c1f, 0 10px 30px rgba(91, 135, 49, 0.5);
+}
+
+.btn-primary:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #3d5c1f;
+}
+
+.btn-buy {
+    background: linear-gradient(180deg, var(--grass-green) 0%, var(--emerald-green) 100%);
+    color: white;
+    width: 100%;
+    box-shadow: 0 4px 0 #3d5c1f;
+}
+
+.btn-buy:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 #3d5c1f;
+}
+
+.btn-buy:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #3d5c1f;
+}
+
+.btn-discord {
+    background: linear-gradient(180deg, #5865F2 0%, #4752C4 100%);
+    color: white;
+    font-size: 1.2rem;
+    padding: 15px 40px;
+    box-shadow: 0 4px 0 #3942b8;
+}
+
+.btn-discord:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 #3942b8;
+}
+
+.btn-checkout {
+    background: linear-gradient(180deg, #25D366 0%, #128C7E 100%);
+    color: white;
+    width: 100%;
+    font-size: 1.1rem;
+    padding: 15px;
+    box-shadow: 0 4px 0 #0d8a5f;
+}
+
+.btn-checkout:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 #0d8a5f;
+}
+
+/* ========================================
+   Products Section
+   ======================================== */
+
+.products {
+    padding: 80px 0;
+    background: var(--dark-bg);
+}
+
+.section-title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--grass-green);
+    text-shadow: 3px 3px 0 #000;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 3px 3px 0 #000, 0 0 10px rgba(91, 135, 49, 0.5);
+    }
+    to {
+        text-shadow: 3px 3px 0 #000, 0 0 20px rgba(91, 135, 49, 0.8);
+    }
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 0 20px;
+}
+
+.product-card {
+    background: var(--card-bg);
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 3px solid transparent;
+    animation: slideIn 0.5s ease forwards;
+    opacity: 0;
+}
+
+.product-card:nth-child(1) { animation-delay: 0.1s; }
+.product-card:nth-child(2) { animation-delay: 0.2s; }
+.product-card:nth-child(3) { animation-delay: 0.3s; }
+.product-card:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--grass-green);
+    box-shadow: 0 10px 40px rgba(91, 135, 49, 0.3);
+}
+
+.product-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-icon {
+    transform: scale(1.1) rotate(10deg);
+}
+
+.fire-crate {
+    background: linear-gradient(180deg, #FF6B35 0%, #D32F2F 100%);
+    box-shadow: 0 0 20px rgba(255, 107, 53, 0.5);
+}
+
+.insane-crate {
+    background: linear-gradient(180deg, #FFD700 0%, #FF8C00 100%);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+.legendary-crate {
+    background: linear-gradient(180deg, #9C27B0 0%, #4A148C 100%);
+    box-shadow: 0 0 20px rgba(156, 39, 176, 0.5);
+}
+
+.product-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-light);
+}
+
+.price {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* ========================================
+   Rank Cards
+   ======================================== */
+
+.rank-card {
+    position: relative;
+}
+
+.rank-badge {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.9rem;
+    color: white;
+    text-shadow: 2px 2px 0 rgba(0,0,0,0.5);
+    animation: badgePulse 2s ease-in-out infinite;
+}
+
+@keyframes badgePulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.rank-badge.vip {
+    background: linear-gradient(180deg, #55FF55 0%, #00AA00 100%);
+    box-shadow: 0 0 20px rgba(85, 255, 85, 0.5);
+}
+
+.rank-badge.vip-plus {
+    background: linear-gradient(180deg, #FF55FF 0%, #AA00AA 100%);
+    box-shadow: 0 0 20px rgba(255, 85, 255, 0.5);
+}
+
+.rank-badge.mvp {
+    background: linear-gradient(180deg, #55FFFF 0%, #00AAAA 100%);
+    box-shadow: 0 0 20px rgba(85, 255, 255, 0.5);
+}
+
+.rank-badge.mvp-plus {
+    background: linear-gradient(180deg, #FFAA00 0%, #FF5500 100%);
+    box-shadow: 0 0 20px rgba(255, 170, 0, 0.5);
+}
+
+/* ========================================
+   Discord Section
+   ======================================== */
+
+.discord-section {
+    padding: 80px 0;
+    background: linear-gradient(180deg, var(--dark-bg) 0%, var(--darker-bg) 100%);
+    text-align: center;
+}
+
+.discord-description {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+.usernames {
+    margin-top: 3rem;
+}
+
+.usernames h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--text-light);
+}
+
+.username-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.username {
+    background: var(--card-bg);
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 700;
+    border: 2px solid var(--grass-green);
+    animation: fadeIn 0.5s ease forwards;
+    opacity: 0;
+}
+
+.username:nth-child(1) { animation-delay: 0.1s; }
+.username:nth-child(2) { animation-delay: 0.2s; }
+.username:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* ========================================
+   Footer
+   ======================================== */
+
+.footer {
+    background: var(--darker-bg);
+    padding: 2rem 0;
+    text-align: center;
+    border-top: 3px solid var(--grass-green);
+}
+
+.footer p {
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.footer .fa-heart {
+    color: var(--red);
+    animation: heartbeat 1s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+/* ========================================
+   Cart Modal
+   ======================================== */
+
+.cart-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 2000;
+    animation: fadeIn 0.3s ease;
+}
+
+.cart-modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart-content {
+    background: var(--card-bg);
+    width: 90%;
+    max-width: 500px;
+    max-height: 80vh;
+    border-radius: 10px;
+    overflow: hidden;
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.cart-header {
+    background: var(--grass-green);
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-header h2 {
+    font-size: 1.3rem;
+    color: white;
+}
+
+.close-cart {
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.close-cart:hover {
+    transform: rotate(90deg);
+}
+
+.cart-items {
+    padding: 1.5rem;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.empty-cart {
+    text-align: center;
+    color: var(--text-muted);
+    padding: 2rem;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: var(--dark-bg);
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    animation: slideIn 0.3s ease;
+}
+
+.cart-item-info {
+    flex: 1;
+}
+
+.cart-item-name {
+    font-weight: 700;
+    color: var(--text-light);
+}
+
+.cart-item-price {
+    color: var(--gold);
+    font-weight: 700;
+}
+
+.remove-item {
+    background: var(--red);
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.remove-item:hover {
+    transform: scale(1.1);
+}
+
+.cart-footer {
+    padding: 1.5rem;
+    border-top: 2px solid var(--dark-bg);
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    color: var(--text-light);
+}
+
+#cartTotal {
+    color: var(--gold);
+}
+
+/* ========================================
+   Floating Blocks Animation
+   ======================================== */
+
+.floating-blocks {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.float-block {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    opacity: 0.3;
+    animation: floating 15s linear infinite;
+}
+
+.float-block.block-1 {
+    background: var(--grass-green);
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.float-block.block-2 {
+    background: var(--dirt-brown);
+    left: 30%;
+    animation-delay: 3s;
+}
+
+.float-block.block-3 {
+    background: var(--diamond-blue);
+    left: 50%;
+    animation-delay: 6s;
+}
+
+.float-block.block-4 {
+    background: var(--emerald-green);
+    left: 70%;
+    animation-delay: 9s;
+}
+
+.float-block.block-5 {
+    background: var(--gold);
+    left: 90%;
+    animation-delay: 12s;
+}
+
+@keyframes floating {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+    }
+    100% {
+        transform: translateY(-100px) rotate(360deg);
+    }
+}
+
+/* ========================================
+   Responsive Design
+   ======================================== */
+
+@media (max-width: 768px) {
+    .header .container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .logo h1 {
+        font-size: 1.2rem;
+    }
+
+    .hero h2 {
+        font-size: 1.5rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 1.3rem;
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .minecraft-block {
+        width: 40px;
+        height: 40px;
+    }
+
+    .hero-blocks {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav a {
+        font-size: 0.9rem;
+    }
+
+    .product-card {
+        padding: 1.5rem;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    .rank-badge,
+    .product-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.8rem;
+    }
+}
+
+/* ========================================
+   Scrollbar Styling
+   ======================================== */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--dark-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--grass-green);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-hover);
+}
